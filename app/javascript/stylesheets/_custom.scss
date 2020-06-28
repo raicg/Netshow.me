@@ -1,0 +1,22 @@
+.card-title{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#link_copy {
+  overflow: auto;
+  white-space: nowrap;
+}
+
+.video-js {
+  width: 100%;
+}
+
+.navbar-nav {
+  flex-direction: row;
+}
+
+.nav-item {
+  margin-left: 15px;
+}  
