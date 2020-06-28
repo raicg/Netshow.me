@@ -1,0 +1,6 @@
+<% content_for :right do %>
+  <%= link_to t(:show), @video, class: 'btn btn-primary' %>
+  <%= link_to t(:back), videos_path, class: 'btn btn-primary' %>
+<% end %>
+
+<%= render 'form' %>

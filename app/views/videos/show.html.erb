@@ -1,0 +1,52 @@
+<% content_for :right do %>
+	<%= link_to t(:play), play_video_path(@video), class: 'btn btn-primary' %>
+	<%= link_to t(:edit), edit_video_path(@video), class: 'btn btn-primary' %>
+	<%= link_to t(:back), videos_path, class: 'btn btn-primary' %>
+<% end %>
+
+<div class="border border-dark">
+	<div class="row">
+		<div class="col-md-6">
+			<%= image_pack_tag "video_image.png", class: 'img-fluid', style: 'max-height: 50%;' %>
+		</div>
+		<div class="col-md-6 align-self-center">
+			<p><%= t(:name, scope: 'activerecord.attributes.video') %>:</p>
+			<h5><%= @video.name %></h5>
+			<br/>
+			<p><%= t(:url, scope: 'activerecord.attributes.video') %>:</p>
+			<h5><%= @video.url %></h5>
+			<br/>
+			<p><%= t(:views, scope: 'activerecord.attributes.video') %>:</p>
+			<h5><%= @video.views %></h5>
+		</div>
+	</div>
+</div>
+
+<br/><br/>
+
+<div class="border border-dark h4">
+	<div class="row pt-3">
+		<div class="col-md-2">
+			<p><%= t(:public_url, scope: 'activerecord.attributes.video') %>:</p>
+		</div>
+		<div class="col-md-8">
+			<p id="link_copy"><%= play_video_url(@video) %></p>
+		</div>
+		<div class="col-md-2 text-right">
+			<button id="copy" class="bg-transparent border-0"><%= t(:copy) %></button>
+		</div>
+	</div>
+</div>
+
+<%= content_for :scripts do %> 
+  <script type='text/javascript'>
+    $('#copy').click(function() {
+      var aux = document.createElement("input");
+      aux.setAttribute("value", document.getElementById('link_copy').innerHTML);
+      document.body.appendChild(aux);    
+      aux.select();
+      document.execCommand("copy");
+      document.body.removeChild(aux);
+    })
+  </script>
+<% end %>

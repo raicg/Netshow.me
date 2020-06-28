@@ -1,0 +1,40 @@
+<% if @videos.any? %>
+  <div class="row">
+    <% @videos.each do |video| %>
+      <div class="col-md-4 col-xs-12 mb-4">
+        <div class="card">
+          <%= link_to video do %>
+            <%= image_pack_tag  "video_image.png", class: 'img-fluid' %>
+          <% end %>
+          <div class="card-body">
+            <%= link_to video do %>
+              <h5 class="card-title smooth-scroll"><%= video.name %></h5>
+            <% end %>
+            
+            <%= link_to edit_video_path(video), class: 'btn mr-4', title: t(:edit) do %>
+              <h4><i class="fas fa-edit"></i></h4>
+            <% end -%>
+
+            <%= link_to video, method: :delete, data: { confirm: "#{t(:are_you_sure)}?" }, class: 'btn', title: t(:destroy) do %>
+              <h4><i class="fas fa-trash"></i></h4>
+            <% end -%>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <br/>
+  <%= will_paginate @videos %>
+<% else %>
+  <div class="jumbotron text-black">
+    Você ainda não possui nenhum vídeo!
+    <br/><br/>
+    <%= link_to new_video_path, class: 'nav-link', title: t(:create_video, scope: 'menu') do %>
+      <button class="btn btn-primary">
+        <i class="fas fa-plus-circle"></i>
+        <%= t(:create_resource, resource: t(:video, scope: 'activerecord.models')) %>
+      </button>
+    <% end %>
+  </div>
+<% end %>
