@@ -1,0 +1,44 @@
+<%% content_for :right do %>
+  <%%= link_to t(:create_resource, resource: t("<%= singular_table_name %>", scope: 'activerecord.models')), new_<%= singular_table_name %>_path, class: 'btn btn-primary' %>
+<%% end %>
+
+<div class="out-table">
+  <table width="100%" class="table table-striped">
+    <thead class="thead-light">
+      <tr>
+        <th><%%= t(:id, scope: "activerecord.attributes") %></th>
+        <% attributes.each do |attribute| -%>
+          <th><%%= t(:<%= attribute.name %>, scope: "activerecord.attributes.<%= singular_table_name %>") %></th>
+        <% end -%>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%% @<%= plural_table_name %>.each do |<%= singular_table_name %>| %>
+        <tr>
+          <td><%%= <%= singular_table_name %>.id %></td>
+          <% attributes.each do |attribute| -%>
+            <td><%%= <%= singular_table_name %>.<%= attribute.name %> %></td>
+          <% end -%>
+
+          <td style="text-align:right">
+            <%%= link_to <%= singular_table_name %>, class: 'btn btn-primary btn-table' do %>
+              <i class="fas fa-eye"></i> <%%= t(:show) %>
+            <%% end -%>
+
+            <%%= link_to edit_<%= singular_table_name %>_path(<%= singular_table_name %>), class: 'btn btn-primary btn-table' do %>
+              <i class="fas fa-edit"></i> <%%= t(:edit) %>
+            <%% end -%>
+
+            <%%= link_to <%= singular_table_name %>, method: :delete, data: { confirm: "#{t(:are_you_sure)}?" }, class: 'btn btn-danger btn-table' do %>
+              <i class="fas fa-trash"></i> <%%= t(:destroy) %>
+            <%% end -%>
+          </td>
+        </tr>
+      <%% end %>
+    </tbody>
+  </table>
+</div>
+
+<br/>
+<%%= will_paginate @<%= plural_table_name %> %>

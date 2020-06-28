@@ -1,0 +1,6 @@
+<%% content_for :right do %>
+  <%%= link_to t(:back), <%= index_helper %>_path, class: 'btn btn-primary' %>
+  <%%= link_to t(:show_resource, resource: t("<%= singular_table_name %>", scope: 'activerecord.models')), @<%= singular_table_name %>, class: 'btn btn-primary' %>
+<%% end %>
+
+<%%= render 'form' %>
