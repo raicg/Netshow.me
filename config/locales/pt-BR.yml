@@ -39,6 +39,7 @@ pt-BR:
       required: "obrigatório."
       taken: "já existente."
       url_extension_should_be_m3u8: "A extensão da url deve ser .m3u8"
+      your_view_was_not_counted: "Erro: sua visualização não foi contabilizada, tente novamente mais tarde."
 
   helpers:
     submit:

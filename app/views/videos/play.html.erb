@@ -1,5 +1,5 @@
-<video class="video-js vjs-big-play-centered vjs-16-9" controls preload="none" data-setup="{}">
-	<source <%= @video.url %> type="application/x-mpegURL">
+<video class="video-js vjs-big-play-centered vjs-16-9" controls data-setup="{}">
+	<source src="<%= @video.url %>" type="application/x-mpegURL">
 	<p class="vjs-no-js"><%= t(:javascript_failed) %> <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
 </video>
 <br/>
@@ -8,17 +8,29 @@
 		<h5><strong><%= @video.name %></strong></h5>
 	</div>
 	<div class="col-md-3 text-left">
-		<h5><%= @video.views %> <%= t(:views, scope: 'activerecord.attributes.video') %></h5>
+		<h5 class="views"><%= @video.views %> <%= t(:views, scope: 'activerecord.attributes.video') %></h5>
+	</div>
+	<div class="info col-12">
 	</div>
 </div>
 
 <%= content_for :scripts do %> 
   <script type='text/javascript'>
-		var first_view = false
+		var first_view = false;
 		$('video').bind('play', function (e) {
 			if (first_view == false) {
 				first_view = true;
-				<%= @video.update(views: @video.views + 1) %>
+				$.ajax({
+					type: "PUT",
+					url: "<%= update_views_video_url(@video) %>",
+					cache: false,
+					success: function(html){
+						$(".views").html("<%= @video.views + 1 %> <%= t(:views, scope: 'activerecord.attributes.video') %>");
+					},
+					error: function(html){
+						$(".info").append("<br/><p><%= t(:your_view_was_not_counted, scope: 'errors.messages') %></p>");
+					}
+				});
 			}
 		});
   </script>
