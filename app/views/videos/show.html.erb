@@ -5,19 +5,19 @@
 <% end %>
 
 <div class="border border-dark">
-	<div class="row">
+	<div class="row mr-2">
 		<div class="col-md-6">
-			<%= image_pack_tag "video_image.png", class: 'img-fluid', style: 'max-height: 50%;' %>
+			<%= image_pack_tag "video_image.png", class: 'img-fluid' %>
 		</div>
 		<div class="col-md-6 align-self-center">
-			<p><%= t(:name, scope: 'activerecord.attributes.video') %>:</p>
-			<h5><%= @video.name %></h5>
+			<h5><strong><%= t(:name, scope: 'activerecord.attributes.video') %>:</strong></h5>
+			<p><%= @video.name %></p>
 			<br/>
-			<p><%= t(:url, scope: 'activerecord.attributes.video') %>:</p>
-			<h5><%= @video.url %></h5>
+			<h5><strong><%= t(:url, scope: 'activerecord.attributes.video') %>:</strong></h5>
+			<p><%= @video.url %></p>
 			<br/>
-			<p><%= t(:views, scope: 'activerecord.attributes.video') %>:</p>
-			<h5><%= @video.views %></h5>
+			<h5><strong><%= t(:views, scope: 'activerecord.attributes.video') %>:</strong></h5>
+			<p><%= @video.views %></p>
 		</div>
 	</div>
 </div>
