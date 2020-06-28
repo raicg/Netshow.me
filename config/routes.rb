@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :videos do
     member do 
       get :play
+      put :update_views
     end
   end
 end

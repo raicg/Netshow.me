@@ -1,7 +1,8 @@
 class VideosController < ApplicationController
-  before_action :set_video, only: [:show, :edit, :update, :destroy, :play]
+  skip_before_action :verify_authenticity_token, only: [:update_views]
+  before_action :set_video, only: [:show, :edit, :update, :destroy, :play, :update_views]
 
-  respond_to :html
+  respond_to :html, :js
 
   def index
     @videos = current_user.videos.paginate(per_page: 9, page: params[:page])
@@ -44,6 +45,10 @@ class VideosController < ApplicationController
 
   def play
     respond_with @video
+  end
+
+  def update_views
+    @video.update(views: @video.views + 1)
   end
 
   private
