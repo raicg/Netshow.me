@@ -1,0 +1,46 @@
+pt-BR:
+  are_you_sure: "Você tem certeza"
+  back: "Voltar"
+  create: "Criar"
+  create_resource: "Criar %{resource}"
+  created_resource: "%{resource} criado"
+  edit: "Editar"
+  edit_resource: "Editar %{resource}"
+  edited_resource: "%{resource} editado"
+  show: "Visualizar"
+  show_resource: "Visualizar %{resource}"
+  destroy: "Deletar"
+  destroy_resource: "Deletar %{resource}"
+  destroyed_resource: "%{resource} deletado com sucesso."
+  copy: "Copiar"
+  play: "Assistir"
+  javascript_failed: "Para visualizar esse video por favor habilite o Javascript e considere atualizar o seu browser"
+  
+  activerecord:
+    models:
+      user: "Usuário"
+      video: "Vídeo"
+    attributes:
+      video:
+        name: "Nome"
+        url: "Endereço URL"
+        views: "Visualizações"
+        public_url: "URL pública"
+
+  menu:
+    login: "Entrar"
+    logout: "Sair"
+    home: "Página inicial"
+    create_video: "Criar Vídeo"
+
+  errors:
+    messages:
+      blank: "em branco."
+      required: "obrigatório."
+      taken: "já existente."
+      url_extension_should_be_m3u8: "A extensão da url deve ser .m3u8"
+
+  helpers:
+    submit:
+      create: "Criar %{model}"
+      update: "Atualizar %{model}"
