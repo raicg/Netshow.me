@@ -1,0 +1,21 @@
+{
+  "name": "netshow",
+  "private": true,
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.13.1",
+    "@rails/actioncable": "^6.0.0",
+    "@rails/activestorage": "^6.0.0",
+    "@rails/ujs": "^6.0.0",
+    "@rails/webpacker": "4.2.2",
+    "bootstrap": "^4.3.1",
+    "jquery": "^3.3.1",
+    "jquery-ui": "^1.12.1",
+    "popper.js": "^1.14.7",
+    "turbolinks": "^5.2.0",
+    "video.js": "^7.8.3"
+  },
+  "version": "0.1.0",
+  "devDependencies": {
+    "webpack-dev-server": "^3.11.0"
+  }
+}
