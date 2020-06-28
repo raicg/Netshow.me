@@ -25,7 +25,9 @@
   </div>
 
   <br/>
-  <%= will_paginate @videos %>
+  <div class="will_paginate">
+    <%= will_paginate @videos %>
+  </div>
 <% else %>
   <div class="jumbotron text-black">
     Você ainda não possui nenhum vídeo!
