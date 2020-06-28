@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Netshow.me</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai&display=swap" rel="stylesheet">
+  <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body class="min-vh-100" style="background-image: linear-gradient(#37cbfb, #fc98ca);">
+
+  <div class="container">
+    <div>
+      <%= render partial: "shared/flashes" %>
+    </div>
+    <div class="card border-0 my-5 col-md-4 mx-auto">
+      <div class="card-body p-5 text-center">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+
+  <%= yield :scripts %>
+
+</body>
+
+</html>
