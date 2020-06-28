@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :authenticate_user!, unless: :videos_play_path?
+  before_action :authenticate_user!, unless: :public_page?
 
   layout :layout_by_resource
 
@@ -10,14 +10,14 @@ class ApplicationController < ActionController::Base
   def layout_by_resource
     if devise_controller?
       'login'
-    elsif videos_play_path?
+    elsif public_page?
       'clean'
     else
       'application'
     end
   end
 
-  def videos_play_path?
-    request.fullpath.match?('/play')
+  def public_page?
+    request.fullpath.match?('/play') || request.fullpath.match?('/update_views')
   end
 end
