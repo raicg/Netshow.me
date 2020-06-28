@@ -114,5 +114,10 @@ RSpec.describe "/videos", type: :request do
       get play_video_url(video)
       expect(response.body).to include('<video')
     end
+
+    it "update views count" do
+      put update_views_video_url(video), xhr: true
+      expect(response).to be_successful
+    end
   end
 end

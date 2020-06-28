@@ -38,5 +38,9 @@ RSpec.describe VideosController, type: :routing do
     it "routes to #play" do
       expect(get: "/videos/1/play").to route_to("videos#play", id: "1")
     end
+
+    it "routes to #update_views" do
+      expect(put: "/videos/1/update_views").to route_to("videos#update_views", id: "1")
+    end
   end
 end
