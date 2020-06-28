@@ -1,14 +1,21 @@
 .will_paginate {
   display: inline-block;
+  a, span, em {
+    padding: 0.2em 0.5em;
+    display: block;
+    float: left;
+    margin-right: 1px; 
+  }
   .disabled {
-    color: #999999; 
+    color: #999999;
+    border: 1px solid #dddddd; 
   }
   .current {
     font-style: normal;
     font-weight: bold;
     background: #2e6ab1;
     color: white;
-    border: 1px solid #2e6ab1;
+    border: 1px solid #2e6ab1; 
   }
   a {
     text-decoration: none;
@@ -20,7 +27,7 @@
     border-color: #000033; 
   }
 }
-
+  
 *:first-child + html .will_paginate {
   overflow: hidden; 
 }
