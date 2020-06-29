@@ -19,8 +19,6 @@ gem 'turbolinks', '5.2.1'
 gem 'jbuilder', '2.10.0'
 # Use dotenv-rails as environment variables manager
 gem 'dotenv-rails', '2.7.5'
-# Use aasm to create state machine on models
-gem 'aasm', '5.0.8'
 # Use devise as authentication system
 gem 'devise', '4.7.2'
 # Use will_paginate to paginate objects
